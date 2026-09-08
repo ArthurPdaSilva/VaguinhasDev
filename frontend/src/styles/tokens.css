@@ -1,0 +1,88 @@
+@theme {
+  --color-paper: #f4f1e8;
+  --color-ink: #171915;
+  --color-muted: #686a62;
+  --color-line: #c8c6bb;
+  --color-signal: #ee4d2d;
+  --color-danger: #a23022;
+  --color-placeholder: #8f8d85;
+
+  --font-sans: "Manrope", sans-serif;
+  --font-mono: "DM Mono", monospace;
+
+  --text-display: clamp(3rem, 8vw, 7rem);
+  --text-display--line-height: 0.94;
+  --text-display--letter-spacing: -0.075em;
+  --text-brand: 1.35rem;
+  --text-brand--line-height: 1;
+  --text-brand--letter-spacing: -0.06em;
+  --text-section: clamp(1.8rem, 4vw, 3rem);
+  --text-section--line-height: 1;
+  --text-section--letter-spacing: -0.05em;
+  --text-card: 1.65rem;
+  --text-card--line-height: 1.2;
+  --text-card--letter-spacing: -0.04em;
+  --text-label: 0.72rem;
+  --text-label--line-height: 1.4;
+  --text-search-label: 0.76rem;
+  --text-search-label--line-height: 1;
+  --text-tag: 0.68rem;
+  --text-tag--line-height: 1;
+  --text-count: 0.7rem;
+  --text-count--line-height: 1;
+  --text-notice: 0.85rem;
+  --text-notice--line-height: 1.5;
+  --text-link: 0.75rem;
+  --text-link--line-height: 1;
+  --text-empty: 1.55rem;
+  --text-empty--line-height: 1.2;
+
+  --tracking-label: 0.08em;
+  --tracking-card: -0.04em;
+
+  --spacing-page: 3rem;
+  --spacing-page-mobile: 0.875rem;
+  --spacing-topbar: 5.5rem;
+  --spacing-topbar-mobile: 4.375rem;
+  --spacing-hero: 5.75rem;
+  --spacing-hero-mobile: 4.0625rem;
+  --spacing-section: 4.375rem;
+  --spacing-section-end: 6.875rem;
+  --spacing-search-top: 3.625rem;
+  --spacing-card: 2.25rem;
+  --spacing-grid: 1.5rem;
+
+  --container-content: 80rem;
+  --container-copy: 32.5rem;
+  --container-search: 49.375rem;
+  --container-display: 56.25rem;
+
+  --shadow-search: 7px 7px 0 var(--color-ink);
+
+  --breakpoint-sm: 43.75rem;
+
+  --background-image-grid: linear-gradient(
+    rgb(23 25 21 / 2.5%) 1px,
+    transparent 1px
+  );
+}
+
+@utility grid-cols-search {
+  grid-template-columns: auto minmax(0, 1fr);
+}
+
+@utility grid-cols-search-wide {
+  grid-template-columns: auto minmax(0, 1fr) auto;
+}
+
+@utility grid-cols-result {
+  grid-template-columns: 2.375rem minmax(0, 1fr);
+}
+
+@utility grid-cols-result-wide {
+  grid-template-columns: 5rem minmax(0, 1fr);
+}
+
+@utility grid-cols-job-wide {
+  grid-template-columns: 5rem minmax(0, 1fr) auto;
+}
