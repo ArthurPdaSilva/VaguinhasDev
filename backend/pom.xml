@@ -8,11 +8,11 @@
 		<version>4.1.1</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.devjobs</groupId>
+	<groupId>com.vaguinhasdev</groupId>
 	<artifactId>backend</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>devjobs-backend</name>
-	<description>DevJobs Aggregator backend</description>
+	<name>vaguinhasdev-backend</name>
+	<description>VaguinhasDev backend</description>
 	<url/>
 	<licenses>
 		<license/>

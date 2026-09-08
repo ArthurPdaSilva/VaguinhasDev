@@ -1,4 +1,4 @@
-# DevJobs Aggregator
+# VaguinhasDev
 
 ## Visão Geral
 
@@ -140,8 +140,29 @@ Para executar as verificações:
 
 ```bash
 cd backend && ./mvnw test
-cd frontend && npm run lint && npm run build
+cd frontend && npm run lint && npm test && npm run build
 ```
+
+## CI/CD
+
+O workflow de integração contínua executa, em pushes e pull requests para `main`:
+
+- testes e empacotamento do backend
+- Biome, testes e build do frontend
+- validação do Docker Compose
+- build das imagens Docker do backend e frontend
+
+Após o CI da `main` concluir com sucesso, o workflow de entrega publica no Docker Hub:
+
+- `<DOCKER_USERNAME>/vaguinhasdev-backend:latest`
+- `<DOCKER_USERNAME>/vaguinhasdev-backend:<commit-sha>`
+- `<DOCKER_USERNAME>/vaguinhasdev-frontend:latest`
+- `<DOCKER_USERNAME>/vaguinhasdev-frontend:<commit-sha>`
+
+Configure os seguintes secrets no repositório GitHub:
+
+- `DOCKER_USERNAME`: usuário ou organização do Docker Hub
+- `DOCKER_ACCESS_TOKEN`: token de acesso do Docker Hub com permissão de escrita
 
 ## Roadmap
 

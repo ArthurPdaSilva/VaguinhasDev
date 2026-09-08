@@ -1,10 +1,10 @@
 spring:
   application:
-    name: devjobs-backend
+    name: vaguinhasdev-backend
   datasource:
-    url: ${DATABASE_URL:jdbc:postgresql://localhost:5432/devjobs}
-    username: ${DATABASE_USERNAME:devjobs}
-    password: ${DATABASE_PASSWORD:devjobs}
+    url: ${DATABASE_URL:jdbc:postgresql://localhost:5432/vaguinhasdev}
+    username: ${DATABASE_USERNAME:vaguinhasdev}
+    password: ${DATABASE_PASSWORD:vaguinhasdev}
   jpa:
     hibernate:
       ddl-auto: validate

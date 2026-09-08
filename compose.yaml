@@ -12,9 +12,9 @@ services:
     build:
       context: ./backend
     environment:
-      DATABASE_URL: jdbc:postgresql://postgres:5432/devjobs
-      DATABASE_USERNAME: devjobs
-      DATABASE_PASSWORD: devjobs
+      DATABASE_URL: jdbc:postgresql://postgres:5432/vaguinhasdev
+      DATABASE_USERNAME: vaguinhasdev
+      DATABASE_PASSWORD: vaguinhasdev
     ports:
       - "8080:8080"
     depends_on:
@@ -30,18 +30,18 @@ services:
   postgres:
     image: postgres:17-alpine
     environment:
-      POSTGRES_DB: devjobs
-      POSTGRES_USER: devjobs
-      POSTGRES_PASSWORD: devjobs
+      POSTGRES_DB: vaguinhasdev
+      POSTGRES_USER: vaguinhasdev
+      POSTGRES_PASSWORD: vaguinhasdev
     ports:
       - "5432:5432"
     volumes:
-      - devjobs-postgres:/var/lib/postgresql/data
+      - vaguinhasdev-postgres:/var/lib/postgresql/data
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U devjobs -d devjobs"]
+      test: ["CMD-SHELL", "pg_isready -U vaguinhasdev -d vaguinhasdev"]
       interval: 5s
       timeout: 5s
       retries: 10
 
 volumes:
-  devjobs-postgres:
+  vaguinhasdev-postgres:
