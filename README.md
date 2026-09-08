@@ -71,7 +71,16 @@ Fonte externa
 
 ## Estado da Coleta
 
-A API ainda não busca oportunidades externas. O endpoint de listagem, o modelo e a persistência estão prontos, mas os collectors Greenhouse, Lever e Ashby ainda constam no roadmap. Até que um collector e suas empresas/fontes sejam configurados, `/api/v1/jobs` retorna uma lista vazia.
+Os collectors Greenhouse, Lever e Ashby consultam as APIs públicas cinco segundos após a inicialização e repetem a coleta a cada hora. Cada vaga é mapeada, normalizada, deduplicada e persistida antes de aparecer em `/api/v1/jobs`.
+
+As fontes são configuradas por variáveis de ambiente no formato `Empresa=identificador;Outra Empresa=outro-identificador`:
+
+- `GREENHOUSE_BOARDS`: token presente na URL do job board Greenhouse
+- `LEVER_BOARDS`: site presente em `jobs.lever.co/<site>`
+- `ASHBY_BOARDS`: nome presente em `jobs.ashbyhq.com/<board>`
+- `COLLECTORS_FIXED_DELAY`: intervalo ISO-8601, com padrão `PT1H`
+
+O arquivo `.env.example` contém todas as variáveis aceitas pelo Compose. Sem ao menos um board configurado, os collectors não fazem requisições e a lista permanece vazia.
 
 O Flyway é executado automaticamente pela API durante a inicialização e aplica as migrations de `backend/src/main/resources/db/migration` antes da validação do schema pelo Hibernate.
 
@@ -152,7 +161,7 @@ O workflow de integração contínua executa, em pushes e pull requests para `ma
 - validação do Docker Compose
 - build das imagens Docker do backend e frontend
 
-Após o CI da `main` concluir com sucesso, o workflow de entrega publica no Docker Hub:
+Após o CI da `main` concluir com sucesso, o workflow de Continuous Delivery publica no Docker Hub:
 
 - `<DOCKER_USERNAME>/vaguinhasdev-backend:latest`
 - `<DOCKER_USERNAME>/vaguinhasdev-backend:<commit-sha>`
@@ -168,8 +177,8 @@ Configure os seguintes secrets no repositório GitHub:
 
 - [x] Estrutura inicial do backend e frontend
 - [x] Modelo interno e listagem de vagas
-- [ ] Cadastro de empresas e fontes
-- [ ] Collectors Greenhouse, Lever e Ashby
-- [ ] Normalização e deduplicação
+- [x] Collectors Greenhouse, Lever e Ashby
+- [x] Normalização e deduplicação
+- [ ] Cadastro de empresas e fontes via API
 - [ ] Busca e filtros avançados
 - [ ] Usuários e notificações

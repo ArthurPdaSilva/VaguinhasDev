@@ -15,6 +15,10 @@ services:
       DATABASE_URL: jdbc:postgresql://postgres:5432/vaguinhasdev
       DATABASE_USERNAME: vaguinhasdev
       DATABASE_PASSWORD: vaguinhasdev
+      GREENHOUSE_BOARDS: ${GREENHOUSE_BOARDS:-}
+      LEVER_BOARDS: ${LEVER_BOARDS:-}
+      ASHBY_BOARDS: ${ASHBY_BOARDS:-}
+      COLLECTORS_FIXED_DELAY: ${COLLECTORS_FIXED_DELAY:-PT1H}
     ports:
       - "8080:8080"
     depends_on:

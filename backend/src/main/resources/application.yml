@@ -15,3 +15,14 @@ spring:
 
 server:
   port: ${SERVER_PORT:8080}
+
+collectors:
+  enabled: ${COLLECTORS_ENABLED:true}
+  initial-delay: ${COLLECTORS_INITIAL_DELAY:PT5S}
+  fixed-delay: ${COLLECTORS_FIXED_DELAY:PT1H}
+  greenhouse:
+    boards: ${GREENHOUSE_BOARDS:}
+  lever:
+    boards: ${LEVER_BOARDS:}
+  ashby:
+    boards: ${ASHBY_BOARDS:}

@@ -71,6 +71,32 @@ class JpaJobEntity {
     protected JpaJobEntity() {
     }
 
+    private JpaJobEntity(Job job) {
+        update(job);
+    }
+
+    static JpaJobEntity fromDomain(Job job) {
+        return new JpaJobEntity(job);
+    }
+
+    void update(Job job) {
+        this.id = job.id();
+        this.externalId = job.externalId();
+        this.source = job.source();
+        this.sourceUrl = job.sourceUrl();
+        this.company = job.company();
+        this.title = job.title();
+        this.description = job.description();
+        this.seniority = job.seniority();
+        this.workModel = job.workModel();
+        this.location = job.location();
+        this.publishedAt = job.publishedAt();
+        this.discoveredAt = job.discoveredAt();
+        this.lastSeenAt = job.lastSeenAt();
+        this.status = job.status();
+        this.fingerprint = job.fingerprint();
+    }
+
     Job toDomain() {
         return new Job(id, externalId, source, sourceUrl, company, title, description,
                 seniority, workModel, location, publishedAt, discoveredAt, lastSeenAt,
